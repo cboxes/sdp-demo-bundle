@@ -1,0 +1,22 @@
+bundle:
+  name: sdp-demo
+
+include:
+  - resources/*.yml
+
+workspace:
+  host: https://dbc-02ab7e96-d4e0.cloud.databricks.com
+
+targets:
+
+  dev:
+
+    default: true
+
+    workspace:
+      root_path: /Workspace/Users/${workspace.current_user.userName}/bundles/${bundle.name}
+
+  prod:
+
+    workspace:
+      root_path: /Shared/bundles/${bundle.name}
